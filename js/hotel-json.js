@@ -26,7 +26,7 @@ $("input[type='button']").click(function (e) {
     data[entry.name]=entry.value;
   });
 
-  console.log(data)
+  console.log(data);
   firebase.firestore().collection("hoteldata").add(data);
 
   $('form')[0].reset();
@@ -40,16 +40,17 @@ array1.forEach(element => console.log(element));
 
 /* read the data from the database */
 
-/*
+
 firebase
   .firestore()
   .collection('hoteldata')
   .onSnapshot((querySnapshot) => {
     console.log(querySnapshot.size);
     querySnapshot.forEach((doc) => {
-      console.log(doc.data());
-      console.log(doc.data().room);
-      console.log(doc.data().checkout);
+
+      doc.data().forEach((entry) => {
+        console.log(entry);
+      });
+
     });
   });
-*/
