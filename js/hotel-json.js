@@ -18,8 +18,17 @@ $("input[type='button']").click(function (e) {
   //get the value of form
 
   /* save the data to database */
+  var inputdata = $('form').serializeArray();
+  var data = {};
 
-  /* clear the entry */
+  inputdata.forEach((entry) => {
+    console.log(entry);
+    data[entry.name]=entry.value;
+  });
+
+  console.log(data)
+  firebase.firestore().collection("hoteldata").add(data);
+
   $('form')[0].reset();
 });
 
