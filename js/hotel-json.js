@@ -15,6 +15,7 @@ firebase.initializeApp(firebaseConfig);
 
 // enter data in
 $("input[type='button']").click(function (e) {
+  e.preventDefault();
   //get the value of form
 
   /* save the data to database */
@@ -41,9 +42,9 @@ array1.forEach(element => console.log(element));
 /* read the data from the database */
 
 
-firebase
+/*firebase
   .firestore()
-  .collection('hoteldata')
+  .collection('surveydata')
   .onSnapshot((querySnapshot) => {
     console.log(querySnapshot.size);
     querySnapshot.forEach((doc) => {
@@ -54,3 +55,4 @@ firebase
 
     });
   });
+*/
